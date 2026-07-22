@@ -15,6 +15,7 @@ from wishlistor.models.app_config_model import AppConfigModel
 from wishlistor.models.project_model import ProjectModel
 from wishlistor.models.view_state_model import ProjectFormState, ProjectRowState
 from wishlistor.shared.constants_util import C_ROW_HEIGHT_DEFAULT
+from wishlistor.shared.enums.default_value_enum import DefaultValueEnum
 from wishlistor.shared.enums.severity_enum import SeverityEnum
 from wishlistor.shared.errors.csv_error import ErrorCodeCsv
 from wishlistor.shared.errors.project_error import ErrorCodeProject
@@ -124,6 +125,10 @@ class ProjectService:
             primary_column="",
             search_index_columns=special,
             visible_columns=special,
+            column_default_values=(
+                ("csv.index", DefaultValueEnum.E_TOTAL_ROW_COUNT.value),
+                ("csv.best_extractor", DefaultValueEnum.E_EXTRACTOR_E0.value),
+            ),
         )
 
     def form_state_of(self, project: ProjectModel) -> ProjectFormState:

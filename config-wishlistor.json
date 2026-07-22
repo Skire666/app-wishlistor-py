@@ -29,10 +29,10 @@
   },
   "window": {
     "width": 766,
-    "height": 785,
-    "x": -1151,
-    "y": 30,
-    "maximized": false
+    "height": 786,
+    "x": 939,
+    "y": 185,
+    "maximized": true
   },
   "project_table_column_widths": {
     "name": 100,
@@ -71,15 +71,15 @@
           "e6.title_game"
         ]
       },
-      "last_opened": "2026-07-22 16:29:46",
+      "last_opened": "2026-07-22 17:27:40",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
         "wsh.owner_comments",
-        "csv.primary_key",
         "e6.title_game",
         "e6.date_published",
         "e4.image_base64",
+        "csv.primary_key",
         "e3.nbr_review_by_users",
         "e3.score_with_users",
         "wsh.rank_1234_summed",
@@ -90,10 +90,10 @@
         "wsh.owner_tags",
         "csv.best_extractor",
         "wsh.owner_comments",
-        "csv.primary_key",
         "e6.title_game",
         "e6.date_published",
         "e4.image_base64",
+        "csv.primary_key",
         "e3.nbr_review_by_users",
         "e3.score_with_users",
         "wsh.rank_1234_summed",
@@ -136,12 +136,29 @@
         "wsh.rank_23_summed": 83
       },
       "column_nicknames": {
-        "csv.primary_key": "URL",
-        "e6.title_game": "Titre jeu"
+        "e6.title_game": "Titre jeu",
+        "csv.primary_key": "URL"
       },
-      "column_default_values": [],
-      "sort_column": "e6.date_published",
-      "sort_descending": false
+      "column_default_values": [
+        {
+          "column": "csv.index",
+          "default_value": "total_row_count"
+        },
+        {
+          "column": "csv.best_extractor",
+          "default_value": "extractor_e0"
+        },
+        {
+          "column": "csv.first_created",
+          "default_value": "date_1900"
+        },
+        {
+          "column": "csv.last_modified",
+          "default_value": "date_today"
+        }
+      ],
+      "sort_column": "wsh.rank_1234_summed",
+      "sort_descending": true
     }
   },
   "recent_projects": [
