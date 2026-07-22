@@ -31,7 +31,7 @@
     "width": 766,
     "height": 786,
     "x": 939,
-    "y": 185,
+    "y": 365,
     "maximized": true
   },
   "project_table_column_widths": {
@@ -55,7 +55,7 @@
         "Favoris": 0.2,
         "A faire": 0.4,
         "En cours": 0.8,
-        "Terminé": -0.5,
+        "Terminé": -0.75,
         "Abandonné": -0.75,
         "Archivé": -1.0,
         "Ignoré": -1.0
@@ -71,7 +71,7 @@
           "e6.title_game"
         ]
       },
-      "last_opened": "2026-07-22 17:27:40",
+      "last_opened": "2026-07-22 23:31:46",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
@@ -84,7 +84,8 @@
         "e3.score_with_users",
         "wsh.rank_1234_summed",
         "wsh.rank_23_summed",
-        "csv.index"
+        "csv.index",
+        "csv.last_modified"
       ],
       "column_order": [
         "wsh.owner_tags",
@@ -98,7 +99,8 @@
         "e3.score_with_users",
         "wsh.rank_1234_summed",
         "wsh.rank_23_summed",
-        "csv.index"
+        "csv.index",
+        "csv.last_modified"
       ],
       "column_widths": {
         "wsh.owner_tags": 135,
@@ -157,7 +159,7 @@
           "default_value": "date_today"
         }
       ],
-      "sort_column": "wsh.rank_1234_summed",
+      "sort_column": "wsh.rank_23_summed",
       "sort_descending": true
     }
   },
