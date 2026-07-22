@@ -1,0 +1,293 @@
+# -----------------------------------------------------------------------------
+# Build System — packaging backend configuration
+# -----------------------------------------------------------------------------
+
+[build-system]
+
+# Minimum version of setuptools required to build the project.
+requires = ["setuptools>=75.0"]
+
+# Backend used by pip to build and install the package.
+build-backend = "setuptools.build_meta"
+
+# -----------------------------------------------------------------------------
+# Project Metadata
+# -----------------------------------------------------------------------------
+
+[project]
+
+# Distribution name used by pip (e.g. pip install app-wishlistor).
+name = "app-wishlistor"
+
+# Current version of the application, following semantic versioning (MAJOR.MINOR.PATCH).
+version = "1.0.0"
+
+# Short description displayed on PyPI or in pip show.
+description = "Wishlistor Application"
+
+# Path to the README file, used as the long description on PyPI.
+readme = "README.md"
+
+# Minimum Python version required to run the project.
+requires-python = ">=3.13"
+
+# Runtime dependencies (PySide6 is the only allowed UI framework, see AGENTS.md §1).
+dependencies = ["PySide6>=6.11,<7"]
+
+[project.optional-dependencies]
+
+# Development tooling (static analysis, tests, cleaning).
+dev = ["pytest", "pytest-cov", "ruff", "basedpyright", "pyclean"]
+
+# -----------------------------------------------------------------------------
+# Package Discovery — tells setuptools which folders to include
+# -----------------------------------------------------------------------------
+
+[tool.setuptools.packages.find]
+
+# Root directory where setuptools starts looking for packages (standard src layout).
+where = ["src"]
+
+# Explicit list of packages to include (prevents bundling unrelated folders).
+include = ["wishlistor*"]
+
+# -----------------------------------------------------------------------------
+# Ruff — Linter & Formatter
+# -----------------------------------------------------------------------------
+
+[tool.ruff]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "tools",
+    "venv",
+]
+
+# The Python version targeted by the project.
+# Ruff uses it to know which syntax features are available.
+target-version = "py314"
+
+# Maximum number of characters per line.
+# 88 is the default value used by Black, now a de facto standard.
+line-length = 115
+
+indent-width = 4
+
+# Show the rule code and a detailed fix suggestion in the terminal output.
+output-format = "full"
+
+[tool.ruff.format]
+
+# use double quote tyhan simple quote
+quote-style = "double"
+
+# indent with spaces, rather than tabs.
+indent-style = "space"
+
+# avoid useless new line after comma
+skip-magic-trailing-comma = true
+
+# "auto" | "lf" | "crlf" | "cr" | "native"
+line-ending = "lf"
+
+[tool.ruff.lint]
+
+# List of rule families to enable.
+# Each letter corresponds to a plugin built into Ruff:
+select = [
+    "A",    # avoid builtin hidden
+    "ANN",  # flake8-annotations — ensures type hints are present everywhere
+    "B",    # flake8-bugbear — detects common bugs and bad practices
+    "BLE",  # exceptions (avoid the catch-all term)
+    "C4",   # Catch incorrect use of comprehensions, dict, list, etc
+    "C90",  # mccabe — cyclomatic complexity (flags overly complex functions)
+    "D",    # pydocstyle — docstring presence and format
+    "E",    # pycodestyle errors
+    "ERA",  # dead code
+    "F",    # pyflakes — logical errors (unused imports, undefined names…)
+    "FA",   # force usage of 'from __future__ import annotations'
+    "I",    # isort — import ordering and grouping
+    "ISC",  # good usage string concatenation
+    "ICN",  # good usage import (popular way)
+    "LOG",  # Checks for issues using the standard library logging module.
+    "N",    # pep8-naming — naming conventions (snake_case, PascalCase…)
+    "NPY",  # numpy stuff
+    "PIE",  # useless patterns
+    "PLR",  # do refactor
+    "PTH",  # Use pathlib instead of os.path
+    "RUF",  # Ruff-specific rules — modern Python best practices
+    "RET",  # Good return practices
+    "SIM",  # flake8-simplify — suggests code simplifications
+    "TID",  # another good usage import (popular way)
+    "TRY",  # exceptions
+    "UP",   # Warn if certain things can changed due to newer Python versions
+    "W",    # pycodestyle warnings
+]
+
+# Activate preview
+preview = true
+
+# Individual rules to disable despite the families enabled above.
+ignore = [
+    "D104",    # Missing docstring in public package (empty __init__.py tolerated)
+    "D100",    # Missing docstring at module level (relaxed for simple modules)
+    "PLR6301", # no-self-use: Protocol implementations and Qt overrides must stay instance methods
+]
+
+[tool.ruff.lint.flake8-annotations]
+
+# suppress ANN401 for dynamically typed *args and **kwargs arguments.
+allow-star-arg-any = true
+
+[tool.ruff.lint.mccabe]
+
+# Alert if cyclomatic complexity exceeds this threshold.
+# 10 is the widely accepted standard (McCabe's own recommendation).
+# 1-5: simple | 6-10: acceptable | 11-15: refactor | 15+: high bug risk
+max-complexity = 8 # 8 recommanded
+
+[tool.ruff.lint.pydocstyle]
+
+# Enforce Google style for docstrings (Args:, Returns:, Raises:…).
+# Other possible values: "numpy" or "pep257".
+convention = "google"
+
+[tool.ruff.lint.pylint]
+
+# Maximum number of arguments for a function/method
+max-args = 8  # default: 5
+
+# Maximum number of positional arguments for a function/method
+max-positional-args = 8  # default: same as max-args
+
+# Maximum number of boolean expressions in a function/method
+max-bool-expr = 5  # default: 5
+
+# Maximum number of branches in a function/method (if, elif, else, for, while, try, except...)
+max-branches = 12  # default: 12
+
+# Maximum number of statements in the body of a function/method
+max-statements = 50  # default: 50
+
+# Maximum number of return statements in a function/method
+max-returns = 6  # default: 6
+
+# Maximum number of public methods for a class
+max-public-methods = 50  # default: 20
+
+# Maximum number of local variables in a function/method
+max-locals = 14  # default: 15
+
+# Maximum number of nested blocks
+max-nested-blocks = 4  # default: 5
+
+[tool.ruff.lint.per-file-ignores]
+
+# In test files, docstrings are optional and literal expected values are the norm.
+"tests/**" = ["D", "PLR2004"]
+
+# ICsvView is a wide (but segregated) contract: the Protocol and the concrete
+# view exceed the default public-method budget by design.
+"src/wishlistor/interfaces/i_csv_view.py" = ["PLR0904"]
+"src/wishlistor/views/csv_view.py" = ["PLR0904"]
+
+# The composition root assembles every object exactly once (AGENTS.md §9):
+# it is intentionally one long, flat function with many locals, and each
+# cross-presenter closure it defines counts as one mccabe branch.
+"src/wishlistor/main.py" = ["PLR0914", "PLR0915", "C901"]
+
+# -----------------------------------------------------------------------------
+# Basedpyright — Static Type Checking
+# -----------------------------------------------------------------------------
+
+[tool.basedpyright]
+
+# Python version used for static type analysis.
+pythonVersion = "3.14"
+
+# Folders containing source code to analyse.
+include = ["src"]
+
+# Folders excluded from analysis — tests do not need to be type-checked.
+exclude = ["tests", "**/__pycache__", "**/node_modules", ".venv"]
+
+# virtual environments
+venvPath = "."
+venv = "venv"
+
+# Strictest level available in basedpyright (superset of "strict").
+typeCheckingMode = "standard" # "off" | "basic" | "standard" | "strict" | "all"
+
+# Suppresses errors on third-party libraries without type stubs (py.typed / stubs missing).
+reportMissingModuleSource = "none"
+
+# Forbid useless `type: ignore` comments (already correct type).
+reportUnnecessaryTypeIgnoreComment = "error"
+
+# Forbid redundant cast() calls.
+reportUnnecessaryCast = "error"
+
+# Forbid isinstance() checks that are always true or always false.
+reportUnnecessaryIsInstance = "error"
+
+# Forbid comparisons whose result is always true or always false.
+reportUnnecessaryComparison = "error"
+
+# Require exhaustive matching of all Union / Literal branches.
+reportMatchNotExhaustive = "error"
+
+# Flag implicitly Unknown variable types.
+reportUnknownVariableType = "error"
+
+# Flag implicitly Unknown parameter types.
+reportUnknownParameterType = "error"
+
+# Flag implicitly Unknown member/attribute types.
+reportUnknownMemberType = "error"
+
+# -----------------------------------------------------------------------------
+# Pytest — Test Runner
+# -----------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+
+# Folder in which Pytest looks for test files.
+testpaths = ["tests"]
+
+# Verbosity level (2 = detailed, displays each test individually).
+# recommended = "-v --cov=src --cov-report=term-missing"
+addopts = "-v"
+
+# Add 'src' to sys.path so tests can import the 'wishlistor' package, and
+# the repo root so tests can import shared test doubles ('tests.…').
+pythonpath = ["src", "."]
+
+# Discover both standard test_*.py files and regression *_regression.py files.
+python_files = ["test_*.py"]
+
+# EOF

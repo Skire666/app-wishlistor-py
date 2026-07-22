@@ -1,0 +1,36 @@
+{
+  "path": "./src/",
+  "rules": {
+    "EPI025": {
+      "enabled": true,
+      "threshold_lines": 25
+    },
+    "EPI301": {
+      "enabled": true
+    },
+    "EPI302": {
+      "enabled": true
+    },
+    "EXT101": {
+      "enabled": true,
+      "max_complexity": 11
+    },
+    "HAS111": {
+      "enabled": true,
+      "max_volume": 1050,
+      "max_volume_file": 10500
+    },
+    "MIR121": {
+      "enabled": true,
+      "min_mi": 5
+    }
+  },
+  "exclude_dirs": [
+    "__pycache__",
+    ".venv",
+    ".git",
+    "node_modules",
+    "tests"
+  ],
+  "output_format": "text"
+}

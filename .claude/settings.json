@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "PowerShell(python -m wishlistor.main*)",
+      "PowerShell(python.exe -m wishlistor.main*)",
+      "PowerShell(*python* -m wishlistor.main*)",
+      "PowerShell(*wishlistor.main*)",
+      "PowerShell(Start-Process*wishlistor*)",
+      "PowerShell(*SendInput*)",
+      "PowerShell(*mouse_event*)",
+      "PowerShell(*SetCursorPos*)",
+      "PowerShell(*System.Windows.Automation*)"
+    ]
+  }
+}

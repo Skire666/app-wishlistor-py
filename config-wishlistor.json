@@ -1,0 +1,150 @@
+{
+  "options": {
+    "undo_max": 10,
+    "default_tag_weights": {
+      "Favoris": 0.2,
+      "A faire": 0.4,
+      "En cours": 0.8,
+      "Terminé": -0.5,
+      "Abandonné": -0.75,
+      "Archivé": -1.0,
+      "Ignoré": -1.0
+    },
+    "special_display_columns": [
+      "wsh.owner_tags",
+      "wsh.owner_comments"
+    ],
+    "theme": "dark",
+    "font_size": 12,
+    "shortcut_ctrl_o_tags": [
+      "Favoris",
+      "A faire"
+    ],
+    "shortcut_ctrl_n_tags": [
+      "Ignoré"
+    ],
+    "shortcut_ctrl_t_tags": [
+      "Terminé"
+    ]
+  },
+  "window": {
+    "width": 766,
+    "height": 785,
+    "x": -1151,
+    "y": 30,
+    "maximized": false
+  },
+  "project_table_column_widths": {
+    "name": 100,
+    "website": 100,
+    "category": 100,
+    "last_opened": 149,
+    "file_size": 100,
+    "available": 137,
+    "action": 100
+  },
+  "projects": {
+    "d346d53b-8c33-4050-8809-f216ae48ec2d": {
+      "name": "Metacritics",
+      "csv_path": "E:/app-life-selector/Jeux Vidéo/Metacritics/export.csv",
+      "website": "Metacritics",
+      "category": "Jeux vidéo",
+      "created_at": "2026-07-17 23:03:45",
+      "row_height": 64,
+      "tag_weights": {
+        "Favoris": 0.2,
+        "A faire": 0.4,
+        "En cours": 0.8,
+        "Terminé": -0.5,
+        "Abandonné": -0.75,
+        "Archivé": -1.0,
+        "Ignoré": -1.0
+      },
+      "columns": {
+        "primary": "csv.primary_key",
+        "released": "e6.date_published",
+        "popularity": "e3.nbr_review_by_users",
+        "scoring": "e3.score_with_users",
+        "search_index": [
+          "wsh.owner_comments",
+          "e4.developer",
+          "e6.title_game"
+        ]
+      },
+      "last_opened": "2026-07-22 16:29:46",
+      "visible_columns": [
+        "wsh.owner_tags",
+        "csv.best_extractor",
+        "wsh.owner_comments",
+        "csv.primary_key",
+        "e6.title_game",
+        "e6.date_published",
+        "e4.image_base64",
+        "e3.nbr_review_by_users",
+        "e3.score_with_users",
+        "wsh.rank_1234_summed",
+        "wsh.rank_23_summed",
+        "csv.index"
+      ],
+      "column_order": [
+        "wsh.owner_tags",
+        "csv.best_extractor",
+        "wsh.owner_comments",
+        "csv.primary_key",
+        "e6.title_game",
+        "e6.date_published",
+        "e4.image_base64",
+        "e3.nbr_review_by_users",
+        "e3.score_with_users",
+        "wsh.rank_1234_summed",
+        "wsh.rank_23_summed",
+        "csv.index"
+      ],
+      "column_widths": {
+        "wsh.owner_tags": 135,
+        "wsh.owner_comments": 114,
+        "csv.best_extractor": 40,
+        "csv.primary_key": 229,
+        "e3.platforms": 97,
+        "e3.nbr_review_by_users": 134,
+        "e3.score_with_users": 108,
+        "e4.developer": 115,
+        "e4.image_base64": 56,
+        "e6.title_game": 165,
+        "wsh.rank_1234_summed": 89,
+        "e6.date_published": 110,
+        "wsh.rank_1_released": 178,
+        "wsh.rank_2_popularity": 204,
+        "wsh.rank_3_notation100": 207,
+        "wsh.rank_4_owner_tags": 100,
+        "e1.date_published_brut": 216,
+        "e1.date_published_clean": 221,
+        "e3.date_published": 161,
+        "e3.date_publish_brut": 36,
+        "e3.date_publish_clean": 157,
+        "csv.strategy_newest": 156,
+        "csv.strategy_oldest": 143,
+        "csv.index": 96,
+        "e1.title_game": 225,
+        "e3.game_title": 97,
+        "csv.first_created": 171,
+        "csv.last_modified": 95,
+        "csv.strategy_quality": 100,
+        "csv.quality_2_row": 46,
+        "e3.nbr_review_by_media": 36,
+        "e3.score_with_media": 100,
+        "wsh.rank_23_summed": 83
+      },
+      "column_nicknames": {
+        "csv.primary_key": "URL",
+        "e6.title_game": "Titre jeu"
+      },
+      "column_default_values": [],
+      "sort_column": "e6.date_published",
+      "sort_descending": false
+    }
+  },
+  "recent_projects": [
+    "d346d53b-8c33-4050-8809-f216ae48ec2d"
+  ]
+}
