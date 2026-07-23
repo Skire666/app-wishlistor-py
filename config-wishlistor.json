@@ -31,7 +31,7 @@
     "width": 766,
     "height": 786,
     "x": 939,
-    "y": 365,
+    "y": 395,
     "maximized": true
   },
   "project_table_column_widths": {
@@ -71,7 +71,7 @@
           "e6.title_game"
         ]
       },
-      "last_opened": "2026-07-22 23:31:46",
+      "last_opened": "2026-07-23 10:38:15",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
