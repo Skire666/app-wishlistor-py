@@ -30,8 +30,8 @@
   "window": {
     "width": 766,
     "height": 786,
-    "x": 939,
-    "y": 395,
+    "x": 46,
+    "y": 322,
     "maximized": true
   },
   "project_table_column_widths": {
@@ -68,10 +68,11 @@
         "search_index": [
           "wsh.owner_comments",
           "e4.developer",
-          "e6.title_game"
+          "e6.title_game",
+          "csv.primary_key"
         ]
       },
-      "last_opened": "2026-07-23 10:38:15",
+      "last_opened": "2026-07-24 21:23:11",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
