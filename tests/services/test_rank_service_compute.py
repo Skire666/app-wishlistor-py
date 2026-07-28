@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from tests.helpers_test import make_csv_service, make_project, write_csv
 from wishlistor.shared.constants_util import (
     C_COL_CUSTOM_TAGS,
     C_COL_RANK_1234_SUMMED,
@@ -16,7 +17,6 @@ from wishlistor.shared.constants_util import (
     C_DEFAULT_DATETIME_STR_CSV,
 )
 from wishlistor.shared.errors.csv_error import ErrorCodeCsv
-from tests.helpers_test import make_csv_service, make_project, write_csv
 
 _HEADER = f"__primary_key__;rel;pop;score;{C_COL_CUSTOM_TAGS}"
 
@@ -76,7 +76,7 @@ def test_unmapped_columns_yield_sequential_ranks_and_warning(tmp_path: Path) -> 
 
 
 def test_rank_custom_tags_uses_project_weights_times_row_count(tmp_path: Path) -> None:
-    lines = [_HEADER, "a;;0;0;Favoris", "b;;0;0;", "c;;0;0;Archivé", "d;;0;0;"]
+    lines = [_HEADER, "a;;0;0;A faire", "b;;0;0;", "c;;0;0;Archivé", "d;;0;0;"]
     document, _project, _result = _load(tmp_path, lines)
     # N = 4 : pas de tag -> 0 ; Archivé (-100%) -> -4.
     values = _column(document, C_COL_RANK_CUSTOM_TAGS)

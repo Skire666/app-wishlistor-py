@@ -119,7 +119,7 @@ C_TAG_WEIGHT_MAX: Final[float] = 1.0
 C_SHORTCUT_CTRL_O: Final[str] = "ctrl_o"
 C_SHORTCUT_CTRL_N: Final[str] = "ctrl_n"
 C_SHORTCUT_CTRL_T: Final[str] = "ctrl_t"
-C_DEFAULT_SHORTCUT_O_TAGS: Final[tuple[str, ...]] = ("A faire", "Favoris")
+C_DEFAULT_SHORTCUT_O_TAGS: Final[tuple[str, ...]] = ("A faire",)
 C_DEFAULT_SHORTCUT_N_TAGS: Final[tuple[str, ...]] = ("Ignoré",)
 C_DEFAULT_SHORTCUT_T_TAGS: Final[tuple[str, ...]] = ("Terminé",)
 

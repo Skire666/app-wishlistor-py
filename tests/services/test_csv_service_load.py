@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from tests.helpers_test import make_csv_service, make_project, write_csv
 from wishlistor.shared.constants_util import (
     C_COL_CUSTOM_COMMENTS,
     C_COL_CUSTOM_TAGS,
@@ -13,7 +14,6 @@ from wishlistor.shared.constants_util import (
     C_COL_RANK_RELEASED,
 )
 from wishlistor.shared.errors.csv_error import ErrorCodeCsv
-from tests.helpers_test import make_csv_service, make_project, write_csv
 
 _HEADER = "__primary_key__;rel;pop;score"
 
@@ -102,13 +102,13 @@ def test_load_cleans_foreign_tags_with_warning(tmp_path: Path) -> None:
     csv_path = tmp_path / "data.csv"
     write_csv(
         csv_path,
-        [f"__primary_key__;rel;pop;score;{C_COL_CUSTOM_TAGS}", "a;2024-01-01 00:00:00;1;1;Favoris||Bidule"],
+        [f"__primary_key__;rel;pop;score;{C_COL_CUSTOM_TAGS}", "a;2024-01-01 00:00:00;1;1;Terminé||Bidule"],
     )
     document, result = make_csv_service().load(make_project(csv_path))
     assert document is not None
     assert result.count_severities_by_code(ErrorCodeCsv.CSV_1010) == 1
     tags_col = document.column_index(C_COL_CUSTOM_TAGS)
-    assert document.rows[0][tags_col] == "Favoris"
+    assert document.rows[0][tags_col] == "Terminé"
 
 
 def test_load_existing_rank_column_is_replaced_with_warning(tmp_path: Path) -> None:

@@ -1,7 +1,7 @@
 """Tag selector: the modeless tag composer, used for both single-row and mass edits.
 
-Checkboxes render white text on the fixed tag color. The cascade rules
-(spec B.4.3) are applied live while the user checks tags.
+Checkboxes render white text on the fixed tag color. Only one tag can be
+active at a time (spec B.4.3): checking one live-unchecks every other.
 """
 
 # -----------------------------------------------------------------------------
@@ -24,7 +24,7 @@ from wishlistor.views.tag_pill_view import TagPillView
 
 
 class TagChecklistView(QWidget):
-    """Seven colored tag-pill checkboxes applying the cascade rules live."""
+    """Colored tag-pill checkboxes enforcing a single active tag live."""
 
     def __init__(self, parent: QWidget | None = None, horizontal: bool = False) -> None:
         """Initialize the checklist.
@@ -58,7 +58,7 @@ class TagChecklistView(QWidget):
         return box
 
     def bind_changed(self, callback: Callable[[], None]) -> None:
-        """Register the change callback (fired after every cascade).
+        """Register the change callback (fired after every toggle).
 
         Args:
             callback: Called after any user toggle.
@@ -83,7 +83,7 @@ class TagChecklistView(QWidget):
         return frozenset(tag.value for tag in self._tags)
 
     def _handle_toggle(self, tag: TagEnum, checked: bool) -> None:
-        """Apply the cascade rules after a user toggle."""
+        """Enforce the single-active-tag rule after a user toggle."""
         self._tags = apply_check(self._tags, tag) if checked else apply_uncheck(self._tags, tag)
         self._sync_boxes()
         if self._on_changed is not None:

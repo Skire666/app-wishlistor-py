@@ -14,7 +14,7 @@ def _document() -> CsvDocumentModel:
     document.csv_path = "test.csv"
     document.header = ["__primary_key__", "titre", C_COL_CUSTOM_TAGS]
     document.rows.extend(
-        [["a", "Bonjour Monde", "Favoris"], ["b", "Autre chose", ""], ["c", "bonjour encore", ""]]
+        [["a", "Bonjour Monde", "A faire"], ["b", "Autre chose", ""], ["c", "bonjour encore", ""]]
     )
     document.set_search_columns(["titre"])
     return document

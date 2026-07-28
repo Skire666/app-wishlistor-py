@@ -16,7 +16,6 @@ def test_default_options_are_valid() -> None:
 
 def test_default_tag_weights_match_the_spec() -> None:
     expected = {
-        "Favoris": 0.20,
         "A faire": 0.40,
         "En cours": 0.80,
         "Terminé": -0.50,
@@ -46,7 +45,7 @@ def test_validate_tolerates_malformed_special_column() -> None:
 
 def test_default_shortcut_tags_match_the_spec() -> None:
     options = OptionsModel()
-    assert options.shortcut_ctrl_o_tags == ["A faire", "Favoris"]
+    assert options.shortcut_ctrl_o_tags == ["A faire"]
     assert options.shortcut_ctrl_n_tags == ["Archivé"]
     assert options.shortcut_ctrl_t_tags == ["Terminé"]
 
@@ -75,11 +74,11 @@ def test_shortcut_tags_round_trip_through_serialization() -> None:
 
 def test_from_dict_tolerates_garbage_and_falls_back_to_defaults() -> None:
     options = OptionsModel.from_dict(
-        {"undo_max": "beaucoup", "default_tag_weights": {"Favoris": "zéro", "Inconnu": 1.0}, "font_size": None}
+        {"undo_max": "beaucoup", "default_tag_weights": {"A faire": "zéro", "Inconnu": 1.0}, "font_size": None}
     )
     assert options.undo_max == 10
     assert options.font_size == 12
-    assert math.isclose(options.default_tag_weights["Favoris"], 0.20)
+    assert math.isclose(options.default_tag_weights["A faire"], 0.40)
     assert "Inconnu" not in options.default_tag_weights
 
 

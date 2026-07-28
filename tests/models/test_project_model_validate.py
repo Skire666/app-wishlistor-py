@@ -72,7 +72,7 @@ def test_validate_requires_the_three_rank_source_columns() -> None:
 
 def test_validate_rejects_out_of_bounds_tag_weight() -> None:
     project = _valid_project()
-    project.tag_weights = {"Favoris": 2.0}
+    project.tag_weights = {"A faire": 2.0}
     assert project.validate().count_severities_by_code(ErrorCodeProject.PRJ_1009) == 1
 
 
