@@ -28,10 +28,10 @@
     ]
   },
   "window": {
-    "width": 766,
-    "height": 786,
-    "x": 46,
-    "y": 322,
+    "width": 852,
+    "height": 785,
+    "x": 761,
+    "y": 119,
     "maximized": true
   },
   "project_table_column_widths": {
@@ -72,7 +72,7 @@
           "csv.primary_key"
         ]
       },
-      "last_opened": "2026-07-24 21:23:11",
+      "last_opened": "2026-07-26 23:46:17",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
@@ -162,9 +162,107 @@
       ],
       "sort_column": "wsh.rank_23_summed",
       "sort_descending": true
+    },
+    "b06f5a09-84bc-4230-b3ea-b515682c5ac8": {
+      "name": "IMDB",
+      "csv_path": "E:/app-life-selector/Vidéo/IMDB/export_imdb.csv",
+      "website": "imdb.com",
+      "category": "Vidéo",
+      "created_at": "2026-07-26 15:00:14",
+      "row_height": 61,
+      "tag_weights": {
+        "Favoris": 0.2,
+        "A faire": 0.4,
+        "En cours": 0.8,
+        "Terminé": -0.5,
+        "Abandonné": -0.75,
+        "Archivé": -1.0,
+        "Ignoré": -1.0
+      },
+      "columns": {
+        "primary": "csv.primary_key",
+        "released": "e3.release_date",
+        "popularity": "e3.vote_count",
+        "scoring": "e3.rating",
+        "search_index": [
+          "wsh.owner_tags",
+          "wsh.owner_comments",
+          "e6.title_discover"
+        ]
+      },
+      "last_opened": "2026-07-28 09:07:26",
+      "visible_columns": [
+        "wsh.owner_tags",
+        "wsh.owner_comments",
+        "csv.best_extractor",
+        "e6.title_discover",
+        "e3.release_date",
+        "e3.image_base64",
+        "csv.primary_key",
+        "wsh.rank_1234_summed",
+        "wsh.rank_23_summed",
+        "e3.rating",
+        "e3.vote_count",
+        "csv.index",
+        "csv.last_modified",
+        "e3.type"
+      ],
+      "column_order": [
+        "wsh.owner_tags",
+        "wsh.owner_comments",
+        "csv.best_extractor",
+        "e6.title_discover",
+        "e3.release_date",
+        "e3.image_base64",
+        "csv.primary_key",
+        "wsh.rank_1234_summed",
+        "wsh.rank_23_summed",
+        "e3.rating",
+        "e3.vote_count",
+        "csv.index",
+        "csv.last_modified",
+        "e3.type"
+      ],
+      "column_widths": {
+        "wsh.owner_tags": 135,
+        "wsh.owner_comments": 179,
+        "csv.best_extractor": 63,
+        "csv.index": 87,
+        "csv.primary_key": 180,
+        "e6.title_discover": 187,
+        "wsh.rank_1234_summed": 74,
+        "wsh.rank_23_summed": 90,
+        "e3.image_base64": 40,
+        "e3.rating": 100,
+        "e3.release_date": 102,
+        "e3.vote_count": 65,
+        "e3.type": 47,
+        "csv.last_modified": 100,
+        "csv.strategy_quality": 40,
+        "csv.quality_1_date": 40,
+        "csv.quality_2_row": 100
+      },
+      "column_nicknames": {},
+      "column_default_values": [
+        {
+          "column": "csv.index",
+          "default_value": "total_row_count"
+        },
+        {
+          "column": "csv.best_extractor",
+          "default_value": "extractor_e0"
+        },
+        {
+          "column": "e3.rating",
+          "default_value": "count_zero"
+        }
+      ],
+      "sort_column": "wsh.rank_23_summed",
+      "sort_descending": true
     }
   },
   "recent_projects": [
+    "b06f5a09-84bc-4230-b3ea-b515682c5ac8",
     "d346d53b-8c33-4050-8809-f216ae48ec2d"
   ]
 }
