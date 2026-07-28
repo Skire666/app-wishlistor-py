@@ -22,7 +22,7 @@ cd app-wishlistor-py
 3. Lancer la compilation
 
 ```
-pyinstaller --noconfirm --onefile --windowed --name wishlistor --paths src src/wishlistor/main.py --icon "E:\app-wishlistor-py\ress\wishlistor.ico"
+pyinstaller --noconfirm --onefile --windowed --name wishlistor --paths src src/wishlistor/main.py --icon ".\ress\apps.ico"
 ```
 
 --paths src : indique à PyInstaller d'ajouter src au chemin de recherche des modules, pour qu'il retrouve bien le package wishlistor si main.py fait des imports du type from wishlistor.timer import Timer
