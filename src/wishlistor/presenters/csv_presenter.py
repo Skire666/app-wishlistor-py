@@ -23,7 +23,7 @@ from wishlistor.models.csv_document_model import CsvDocumentModel
 from wishlistor.models.project_model import ProjectModel
 from wishlistor.presenters.csv_edit_flow import CsvEditFlowMixin
 from wishlistor.shared import i18n_fra
-from wishlistor.shared.constants_util import C_URL_PREFIX
+from wishlistor.shared.constants_util import C_URL_HTTP_PREFIX, C_URL_HTTPS_PREFIX
 from wishlistor.shared.enums.save_choice_enum import SaveChoiceEnum
 from wishlistor.shared.enums.severity_enum import SeverityEnum
 from wishlistor.shared.errors.csv_error import ErrorCodeCsv
@@ -321,10 +321,11 @@ class CsvPresenter(CsvEditFlowMixin):
 
     def _handle_link_activated(self, value: str) -> None:
         """Open a clicked URL in the browser, or a drive path in the explorer."""
-        if value.startswith(C_URL_PREFIX):
+        if value.startswith((C_URL_HTTP_PREFIX, C_URL_HTTPS_PREFIX)):
             open_url_in_browser(value)
             return
         try:
+            # "file://", "E://", ...  # ruff:ignore[commented-out-code]
             open_folder(value)
         except Exception:
             self._logger.exception("Impossible d'ouvrir le dossier '%s'.", value)

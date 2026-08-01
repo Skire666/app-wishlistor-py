@@ -26,10 +26,10 @@
     ]
   },
   "window": {
-    "width": 852,
-    "height": 785,
-    "x": 761,
-    "y": 239,
+    "width": 851,
+    "height": 881,
+    "x": 855,
+    "y": 60,
     "maximized": true
   },
   "project_table_column_widths": {
@@ -69,7 +69,7 @@
           "csv.primary_key"
         ]
       },
-      "last_opened": "2026-07-28 23:06:05",
+      "last_opened": "2026-08-01 16:36:38",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
@@ -157,8 +157,8 @@
           "default_value": "date_today"
         }
       ],
-      "sort_column": "wsh.rank_23_summed",
-      "sort_descending": true
+      "sort_column": "e6.title_game",
+      "sort_descending": false
     },
     "b06f5a09-84bc-4230-b3ea-b515682c5ac8": {
       "name": "IMDB",
@@ -186,7 +186,7 @@
           "e6.title_discover"
         ]
       },
-      "last_opened": "2026-07-28 22:46:03",
+      "last_opened": "2026-07-31 18:21:30",
       "visible_columns": [
         "wsh.owner_tags",
         "wsh.owner_comments",

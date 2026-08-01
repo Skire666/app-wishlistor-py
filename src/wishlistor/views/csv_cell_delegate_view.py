@@ -32,7 +32,9 @@ from wishlistor.shared.constants_util import (
     C_TAG_PILL_RADIUS_PX,
     C_TAG_PILL_SPACING_PX,
     C_TAG_SEPARATOR,
-    C_URL_PREFIX,
+    C_URL_FILE_PREFIX,
+    C_URL_HTTP_PREFIX,
+    C_URL_HTTPS_PREFIX,
     C_WINDOWS_DRIVE_PREFIXES,
 )
 from wishlistor.shared.i18n_fra import CSV_INVALID_IMAGE
@@ -46,7 +48,7 @@ _ModelIndex = QModelIndex | QPersistentModelIndex
 
 def is_link_value(value: str) -> bool:
     """Return True when a cell value must render as a clickable link."""
-    return value.startswith((C_URL_PREFIX, *C_WINDOWS_DRIVE_PREFIXES))
+    return value.startswith((C_URL_HTTP_PREFIX, C_URL_HTTPS_PREFIX, C_URL_FILE_PREFIX, *C_WINDOWS_DRIVE_PREFIXES))
 
 
 class _PixmapCache:
@@ -331,7 +333,7 @@ class CsvCellDelegateView(QStyledItemDelegate):
 
     # -- interaction -------------------------------------------------------------------
 
-    def editorEvent(  # noqa: N802 - Qt override
+    def editorEvent(  # ruff:ignore[invalid-function-name] - Qt override
         self, event: QEvent, model: QAbstractItemModel, option: QStyleOptionViewItem, index: _ModelIndex
     ) -> bool:
         """Toggle the check column on click (whole cell is the hit zone)."""

@@ -144,7 +144,9 @@ C_IMAGE_CACHE_MAX_BYTES: Final[int] = 256 * 1024 * 1024  # 256 MB pixmap cache
 C_IMAGE_FILE_CACHE_MAX_BYTES: Final[int] = 64 * 1024 * 1024  # 64 MB raw image bytes cache
 C_IMAGE_DATA_URI_PREFIX: Final[str] = "data:image/"
 C_IMAGE_DATA_OSB_IMAGE: Final[str] = "![["  # link obsdian : ![[./img/GUID.jpeg]]
-C_URL_PREFIX: Final[str] = "http"
+C_URL_HTTP_PREFIX: Final[str] = "http://"
+C_URL_HTTPS_PREFIX: Final[str] = "https://"
+C_URL_FILE_PREFIX: Final[str] = "file://"
 C_WINDOWS_DRIVE_PREFIXES: Final[tuple[str, ...]] = ("C:\\", "D:\\", "E:\\", "F:\\", "G:\\", "H:\\")
 
 # -----------------------------------------------------------------------------

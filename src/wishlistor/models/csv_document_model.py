@@ -229,7 +229,7 @@ class CsvDocumentModel:
         if 0 <= tags_col < len(row):
             self._tag_sets[row_index] = clean_tags(row[tags_col])[0]
         columns = [self.column_index(name) for name in self._search_column_names]
-        parts = [row[col] for col in columns if 0 <= col < len(row)]
+        parts = [row[col].replace("-", " ").strip() for col in columns if 0 <= col < len(row)]
         self._index_strings[row_index] = _INDEX_JOIN.join(parts).lower()
 
     def rebuild_caches(self) -> None:

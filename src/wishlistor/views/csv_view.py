@@ -590,7 +590,7 @@ class CsvView(QWidget, CsvBindingsMixin):
             return
         # Tag filters are OR-combined between themselves, then AND-combined
         # with the free text filter (spec B.4.2).
-        filter_text = self._filter_bar_var.filter_text()
+        filter_text = self._filter_bar_var.filter_text().replace("-", " ").strip()
         self._model_var.apply_filters(self._filter_bar_var.active_tags(), filter_text)
         self._refresh_counts()
         self._filter_bar_var.set_filter_counter(self._model_var.visible_row_count() if filter_text else None)
