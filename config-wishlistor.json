@@ -29,7 +29,7 @@
     "width": 851,
     "height": 881,
     "x": 855,
-    "y": 60,
+    "y": 750,
     "maximized": true
   },
   "project_table_column_widths": {
@@ -51,7 +51,7 @@
       "row_height": 64,
       "tag_weights": {
         "A faire": 0.4,
-        "En cours": 0.8,
+        "En cours": 1.0,
         "Terminé": -0.75,
         "Abandonné": -0.75,
         "Archivé": -1.0,
@@ -69,7 +69,7 @@
           "csv.primary_key"
         ]
       },
-      "last_opened": "2026-08-01 16:36:38",
+      "last_opened": "2026-08-08 15:43:08",
       "visible_columns": [
         "wsh.owner_tags",
         "csv.best_extractor",
@@ -157,8 +157,8 @@
           "default_value": "date_today"
         }
       ],
-      "sort_column": "e6.title_game",
-      "sort_descending": false
+      "sort_column": "wsh.rank_23_summed",
+      "sort_descending": true
     },
     "b06f5a09-84bc-4230-b3ea-b515682c5ac8": {
       "name": "IMDB",
@@ -186,7 +186,7 @@
           "e6.title_discover"
         ]
       },
-      "last_opened": "2026-07-31 18:21:30",
+      "last_opened": "2026-08-07 18:18:15",
       "visible_columns": [
         "wsh.owner_tags",
         "wsh.owner_comments",
@@ -253,8 +253,8 @@
           "default_value": "count_zero"
         }
       ],
-      "sort_column": "wsh.rank_23_summed",
-      "sort_descending": true
+      "sort_column": "e3.release_date",
+      "sort_descending": false
     }
   },
   "recent_projects": [
